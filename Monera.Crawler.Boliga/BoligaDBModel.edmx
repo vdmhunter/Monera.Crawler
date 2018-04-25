@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BoligaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BoligaProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SogeresultaterGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Titel" Type="nvarchar(max)" />
+          <Property Name="Postnr" Type="char" MaxLength="4" />
+          <Property Name="PostnrTitel" Type="nvarchar(max)" />
+          <Property Name="Kontantpris" Type="money" />
+          <Property Name="Ejerudgift" Type="money" />
+          <Property Name="Kvmpris" Type="money" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Bolig" Type="int" />
+          <Property Name="Grund" Type="int" />
+          <Property Name="Vaerelser" Type="int" />
+          <Property Name="Etage" Type="nvarchar(max)" />
+          <Property Name="Byggear" Type="int" />
+          <Property Name="Oprettet" Type="date" />
+          <Property Name="Liggetid" Type="int" />
+          <Property Name="BrokerLink" Type="nvarchar(max)" />
+          <Property Name="ButikTitel" Type="nvarchar(max)" />
+          <Property Name="ButikAdresse" Type="nvarchar(max)" />
+          <Property Name="ButikPostnr" Type="char" MaxLength="4" />
+          <Property Name="ButikPostnrTitel" Type="nvarchar(max)" />
+          <Property Name="PrisforskelProcentdel" Type="int" />
+          <Property Name="KvmprisBoligen" Type="money" />
+          <Property Name="KvmprisOmradet" Type="money" />
+        </EntityType>
+        <EntityContainer Name="BoligaDBModelStoreContainer">
+          <EntitySet Name="BoligaProperty" EntityType="Self.BoligaProperty" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BoligaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BoligaProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SogeresultaterGuid" Type="Guid" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Titel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Postnr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="PostnrTitel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Kontantpris" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ejerudgift" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Kvmpris" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bolig" Type="Int32" />
+          <Property Name="Grund" Type="Int32" />
+          <Property Name="Vaerelser" Type="Int32" />
+          <Property Name="Etage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Byggear" Type="Int32" />
+          <Property Name="Oprettet" Type="DateTime" Precision="0" />
+          <Property Name="Liggetid" Type="Int32" />
+          <Property Name="BrokerLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ButikTitel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ButikAdresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ButikPostnr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="ButikPostnrTitel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PrisforskelProcentdel" Type="Int32" />
+          <Property Name="KvmprisBoligen" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="KvmprisOmradet" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="BoligaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BoligaProperty" EntityType="Self.BoligaProperty" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BoligaDBModelStoreContainer" CdmEntityContainer="BoligaDBEntities">
+          <EntitySetMapping Name="BoligaProperty">
+            <EntityTypeMapping TypeName="BoligaDBModel.BoligaProperty">
+              <MappingFragment StoreEntitySet="BoligaProperty">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SogeresultaterGuid" ColumnName="SogeresultaterGuid" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Titel" ColumnName="Titel" />
+                <ScalarProperty Name="Postnr" ColumnName="Postnr" />
+                <ScalarProperty Name="PostnrTitel" ColumnName="PostnrTitel" />
+                <ScalarProperty Name="Kontantpris" ColumnName="Kontantpris" />
+                <ScalarProperty Name="Ejerudgift" ColumnName="Ejerudgift" />
+                <ScalarProperty Name="Kvmpris" ColumnName="Kvmpris" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Bolig" ColumnName="Bolig" />
+                <ScalarProperty Name="Grund" ColumnName="Grund" />
+                <ScalarProperty Name="Vaerelser" ColumnName="Vaerelser" />
+                <ScalarProperty Name="Etage" ColumnName="Etage" />
+                <ScalarProperty Name="Byggear" ColumnName="Byggear" />
+                <ScalarProperty Name="Oprettet" ColumnName="Oprettet" />
+                <ScalarProperty Name="Liggetid" ColumnName="Liggetid" />
+                <ScalarProperty Name="BrokerLink" ColumnName="BrokerLink" />
+                <ScalarProperty Name="ButikTitel" ColumnName="ButikTitel" />
+                <ScalarProperty Name="ButikAdresse" ColumnName="ButikAdresse" />
+                <ScalarProperty Name="ButikPostnr" ColumnName="ButikPostnr" />
+                <ScalarProperty Name="ButikPostnrTitel" ColumnName="ButikPostnrTitel" />
+                <ScalarProperty Name="PrisforskelProcentdel" ColumnName="PrisforskelProcentdel" />
+                <ScalarProperty Name="KvmprisBoligen" ColumnName="KvmprisBoligen" />
+                <ScalarProperty Name="KvmprisOmradet" ColumnName="KvmprisOmradet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
